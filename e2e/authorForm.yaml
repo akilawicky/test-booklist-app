@@ -1,0 +1,501 @@
+appId: "${APP_ID}"
+name: "authorFormTestFlow"
+# Suite: AuthorForm
+# Consolidated test flow for AuthorForm screen
+# Contains 33 test case(s):
+---
+- launchApp: {}
+# 1. Verify widget ASText:frmAuthorHdr is displayed on the screen: Verifies that the widget:frmAuthorHdr renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "frmAuthorHdr"
+- waitForAnimationToEnd: {}
+# 2. Verify widget ASText:frmAuthorHdr is displayed on the screen: Verifies that the label of widget:frmAuthorHdr appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "frmAuthorHdr"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "frmAuthorHdr"
+- waitForAnimationToEnd: {}
+# 3. Verify widget ASImage:imgAuthorAvatar is displayed on the screen: Verifies that the widget:imgAuthorAvatar renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "imgAuthorAvatar"
+- waitForAnimationToEnd: {}
+# 4. Verify widget ASText:authorNamePreview is displayed on the screen: Verifies that the widget:authorNamePreview renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorNamePreview"
+- waitForAnimationToEnd: {}
+# 5. Verify widget ASText:authorNamePreview is displayed on the screen: Verifies that the label of widget:authorNamePreview appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorNamePreview"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorNamePreview"
+- waitForAnimationToEnd: {}
+# 6. Verify widget ASText:authorSubtitle is displayed on the screen: Verifies that the widget:authorSubtitle renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorSubtitle"
+- waitForAnimationToEnd: {}
+# 7. Verify widget ASText:authorSubtitle is displayed on the screen: Verifies that the label of widget:authorSubtitle appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorSubtitle"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorSubtitle"
+- waitForAnimationToEnd: {}
+# 8. Verify widget ASTextField:inFullName is displayed on the screen: Verifies that the widget:inFullName renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFullName"
+- waitForAnimationToEnd: {}
+# 9. Verify widget ASTextField:inFullName functionalities: Verifies that input widget:inFullName accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFullName"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFullName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inFullName"
+      TEXT_VALUE: "${TC1755_INFULLNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFullName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inFullName"
+      TEXT_VALUE: "${TC1755_INFULLNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFullName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inFullName"
+      TEXT_VALUE: "${TC1755_INFULLNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFullName"
+- waitForAnimationToEnd: {}
+# 10. Verify widget ASTextField:inFirstName is displayed on the screen: Verifies that the widget:inFirstName renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFirstName"
+- waitForAnimationToEnd: {}
+# 11. Verify widget ASTextField:inFirstName functionalities: Verifies that input widget:inFirstName accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFirstName"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFirstName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inFirstName"
+      TEXT_VALUE: "${TC3055_INFIRSTNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFirstName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inFirstName"
+      TEXT_VALUE: "${TC3055_INFIRSTNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFirstName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inFirstName"
+      TEXT_VALUE: "${TC3055_INFIRSTNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inFirstName"
+- waitForAnimationToEnd: {}
+# 12. Verify widget ASTextField:inLastName is displayed on the screen: Verifies that the widget:inLastName renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inLastName"
+- waitForAnimationToEnd: {}
+# 13. Verify widget ASTextField:inLastName functionalities: Verifies that input widget:inLastName accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inLastName"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inLastName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inLastName"
+      TEXT_VALUE: "${TC9739_INLASTNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inLastName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inLastName"
+      TEXT_VALUE: "${TC9739_INLASTNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inLastName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inLastName"
+      TEXT_VALUE: "${TC9739_INLASTNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inLastName"
+- waitForAnimationToEnd: {}
+# 14. Verify widget ASTextField:inPenName is displayed on the screen: Verifies that the widget:inPenName renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inPenName"
+- waitForAnimationToEnd: {}
+# 15. Verify widget ASTextField:inPenName functionalities: Verifies that input widget:inPenName accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inPenName"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inPenName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inPenName"
+      TEXT_VALUE: "${TC0661_INPENNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inPenName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inPenName"
+      TEXT_VALUE: "${TC0661_INPENNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inPenName"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inPenName"
+      TEXT_VALUE: "${TC0661_INPENNAME_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inPenName"
+- waitForAnimationToEnd: {}
+# 16. Verify widget ASDropDown:ddCountry is displayed on the screen: Verifies that the widget:ddCountry renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dropdown-ddCountry"
+- waitForAnimationToEnd: {}
+# 17. Verify widget ASDropDown:ddCountry functionalities: Verifies that dropdown widget:ddCountry opens correctly and allows selecting an option.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dropdown-ddCountry"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dropdown-ddCountry"
+- runFlow:
+    file: "common/selectDropdownAndWait.yaml"
+    env:
+      WIDGET_ID: "dropdown-ddCountry"
+      OPTION_VALUE: "${TC1465_DDCOUNTRY_DROPDOWN_OPTION}"
+    optional: true
+- tapOn:
+    point: "50%,50%"
+- waitForAnimationToEnd: {}
+# 18. Verify widget ASDatePicker:dpBirth is displayed on the screen: Verifies that the widget:dpBirth renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dpBirth"
+- waitForAnimationToEnd: {}
+# 19. Verify widget ASDatePicker:dpBirth functionalities: Verifies that date picker widget:dpBirth allows selecting a valid date.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dpBirth"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dpBirth"
+- runFlow:
+    file: "common/selectDateAndWait.yaml"
+    env:
+      WIDGET_ID: "dpBirth"
+      DATE_VALUE: "Wed Jun 24 2026"
+- waitForAnimationToEnd: {}
+# 20. Verify widget ASDatePicker:dpDeath is displayed on the screen: Verifies that the widget:dpDeath renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dpDeath"
+- waitForAnimationToEnd: {}
+# 21. Verify widget ASDatePicker:dpDeath functionalities: Verifies that date picker widget:dpDeath allows selecting a valid date.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dpDeath"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dpDeath"
+- runFlow:
+    file: "common/selectDateAndWait.yaml"
+    env:
+      WIDGET_ID: "dpDeath"
+      DATE_VALUE: "Wed Jun 24 2026"
+- waitForAnimationToEnd: {}
+# 22. Verify widget ASTextField:inNationality is displayed on the screen: Verifies that the widget:inNationality renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNationality"
+- waitForAnimationToEnd: {}
+# 23. Verify widget ASTextField:inNationality functionalities: Verifies that input widget:inNationality accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNationality"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNationality"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inNationality"
+      TEXT_VALUE: "${TC5696_INNATIONALITY_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNationality"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inNationality"
+      TEXT_VALUE: "${TC5696_INNATIONALITY_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNationality"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inNationality"
+      TEXT_VALUE: "${TC5696_INNATIONALITY_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNationality"
+- waitForAnimationToEnd: {}
+# 24. Verify widget ASTextField:inBio is displayed on the screen: Verifies that the widget:inBio renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inBio"
+- waitForAnimationToEnd: {}
+# 25. Verify widget ASTextField:inBio functionalities: Verifies that input widget:inBio accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inBio"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inBio"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inBio"
+      TEXT_VALUE: "${TC2238_INBIO_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inBio"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inBio"
+      TEXT_VALUE: "${TC2238_INBIO_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inBio"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inBio"
+      TEXT_VALUE: "${TC2238_INBIO_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inBio"
+- waitForAnimationToEnd: {}
+# 26. Verify widget ASTextField:inNotes is displayed on the screen: Verifies that the widget:inNotes renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNotes"
+- waitForAnimationToEnd: {}
+# 27. Verify widget ASTextField:inNotes functionalities: Verifies that input widget:inNotes accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNotes"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNotes"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inNotes"
+      TEXT_VALUE: "${TC6363_INNOTES_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNotes"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inNotes"
+      TEXT_VALUE: "${TC6363_INNOTES_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNotes"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-inNotes"
+      TEXT_VALUE: "${TC6363_INNOTES_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-inNotes"
+- waitForAnimationToEnd: {}
+# 28. Verify widget ASButton:btnSaveAuthor is displayed on the screen: Verifies that the widget:btnSaveAuthor renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnSaveAuthor"
+- waitForAnimationToEnd: {}
+# 29. Verify event:onPress using widget ASButton:btnSaveAuthor in screen AuthorForm should navigate to AuthorList: Verify that triggering event:onPress using widget: btnSaveAuthor in screen AuthorForm correctly navigates to the next screen AuthorList with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnSaveAuthor"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnSaveAuthor"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "b4eb568a-2a8a-498a-98be-0f5252ea88ec"
+    optional: true
+- waitForAnimationToEnd: {}
+# 30. Navigate back after verifying event:onPress from ASButton:btnSaveAuthor: This test case checks if the Navigate back after verifying event:onPress from ASButton:btnSaveAuthor works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}
+- waitForAnimationToEnd: {}
+# 31. Verify widget ASButton:btnCancelAuthor is displayed on the screen: Verifies that the widget:btnCancelAuthor renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnCancelAuthor"
+- waitForAnimationToEnd: {}
+# 32. Verify event:onPress using widget ASButton:btnCancelAuthor in screen AuthorForm should navigate to AuthorList: Verify that triggering event:onPress using widget: btnCancelAuthor in screen AuthorForm correctly navigates to the next screen AuthorList with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnCancelAuthor"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnCancelAuthor"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "b4eb568a-2a8a-498a-98be-0f5252ea88ec"
+    optional: true
+- waitForAnimationToEnd: {}
+# 33. Navigate back after verifying event:onPress from ASButton:btnCancelAuthor: This test case checks if the Navigate back after verifying event:onPress from ASButton:btnCancelAuthor works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}
+- waitForAnimationToEnd: {}

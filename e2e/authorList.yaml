@@ -1,0 +1,112 @@
+appId: "${APP_ID}"
+name: "authorListTestFlow"
+# Suite: AuthorList
+# Consolidated test flow for AuthorList screen
+# Contains 13 test case(s):
+---
+- launchApp: {}
+# 1. Verify widget ASText:hdrAuthors is displayed on the screen: Verifies that the widget:hdrAuthors renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "hdrAuthors"
+- waitForAnimationToEnd: {}
+# 2. Verify widget ASText:hdrAuthors is displayed on the screen: Verifies that the label of widget:hdrAuthors appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "hdrAuthors"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "hdrAuthors"
+- waitForAnimationToEnd: {}
+# 3. Verify widget ASImage:authorAvatar_item is displayed on the screen: Verifies that the widget:authorAvatar_item renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorAvatar_item"
+- waitForAnimationToEnd: {}
+# 4. Verify widget ASText:authorName_item is displayed on the screen: Verifies that the widget:authorName_item renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorName_item"
+- waitForAnimationToEnd: {}
+# 5. Verify widget ASText:authorName_item is displayed on the screen: Verifies that the label of widget:authorName_item appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorName_item"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorName_item"
+- waitForAnimationToEnd: {}
+# 6. Verify widget ASText:authorCountry_item is displayed on the screen: Verifies that the widget:authorCountry_item renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorCountry_item"
+- waitForAnimationToEnd: {}
+# 7. Verify widget ASText:authorCountry_item is displayed on the screen: Verifies that the label of widget:authorCountry_item appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorCountry_item"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorCountry_item"
+- waitForAnimationToEnd: {}
+# 8. Verify widget ASIconButton:authorChevron_item is displayed on the screen: Verifies that the widget:authorChevron_item renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "icon-authorChevron_item"
+- waitForAnimationToEnd: {}
+# 9. Verify widget ASIconButton:authorChevron_item functionalities: Verifies that tapping button widget:authorChevron_item works correctly and triggers the expected action.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "icon-authorChevron_item"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "icon-authorChevron_item"
+- waitForAnimationToEnd: {}
+# 10. Verify widget ASFloatingActionButton:btnAddAuthor is displayed on the screen: Verifies that the widget:btnAddAuthor renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddAuthor"
+- waitForAnimationToEnd: {}
+# 11. Verify widget ASFloatingActionButton:btnAddAuthor functionalities: Verifies that tapping button widget:btnAddAuthor works correctly and triggers the expected action.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddAuthor"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddAuthor"
+- waitForAnimationToEnd: {}
+# 12. Verify event:onPress using widget ASFloatingActionButton:btnAddAuthor in screen AuthorList should navigate to AuthorForm: Verify that triggering event:onPress using widget: btnAddAuthor in screen AuthorList correctly navigates to the next screen AuthorForm with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddAuthor"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddAuthor"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dc5aa96c-6bfc-4c54-8322-d2e3b1b1f4c7"
+    optional: true
+- waitForAnimationToEnd: {}
+# 13. Navigate back after verifying event:onPress from ASFloatingActionButton:btnAddAuthor: This test case checks if the Navigate back after verifying event:onPress from ASFloatingActionButton:btnAddAuthor works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}

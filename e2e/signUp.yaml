@@ -1,0 +1,245 @@
+appId: "${APP_ID}"
+name: "signUpTestFlow"
+# Suite: SignUp
+# Consolidated test flow for SignUp screen
+# Contains 14 test case(s):
+---
+- launchApp: {}
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-signUpButton"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-signUpButton"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "b7b055da-8016-49f0-879a-9c2490bad04a"
+    optional: true
+# 1. Verify widget ASText:ASText-689879 is displayed on the screen: Verifies that the widget:ASText-689879 renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "ASText-689879"
+- waitForAnimationToEnd: {}
+# 2. Verify widget ASText:ASText-689879 is displayed on the screen: Verifies that the label of widget:ASText-689879 appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "ASText-689879"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "ASText-689879"
+- waitForAnimationToEnd: {}
+# 3. Verify widget ASTextField:emailField is displayed on the screen: Verifies that the widget:emailField renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- waitForAnimationToEnd: {}
+# 4. Verify widget ASTextField:emailField functionalities: Verifies that input widget:emailField accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-emailField"
+      TEXT_VALUE: "${TC7790_EMAILFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-emailField"
+      TEXT_VALUE: "${TC7790_EMAILFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-emailField"
+      TEXT_VALUE: "${TC7790_EMAILFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- waitForAnimationToEnd: {}
+# 5. Verify validation rules for input widget ASTextField:emailField: Verifies validation rules for widget:emailField shows proper error messages.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-emailField"
+      TEXT_VALUE: "test value"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "Email is required"
+- waitForAnimationToEnd: {}
+# 6. Verify widget ASPasswordTextField:passwordField is displayed on the screen: Verifies that the widget:passwordField renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- waitForAnimationToEnd: {}
+# 7. Verify widget ASPasswordTextField:passwordField functionalities: Verifies that input widget:passwordField accepts valid input, handles long text, and supports special characters.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-textInput-passwordField"
+      TEXT_VALUE: "${TC2712_PASSWORDFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-textInput-passwordField"
+      TEXT_VALUE: "${TC2712_PASSWORDFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-textInput-passwordField"
+      TEXT_VALUE: "${TC2712_PASSWORDFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- waitForAnimationToEnd: {}
+# 8. Verify validation rules for input widget ASPasswordTextField:passwordField: Verifies validation rules for widget:passwordField shows proper error messages.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-textInput-passwordField"
+      TEXT_VALUE: "test value"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/eraseTextAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "Password is required"
+- waitForAnimationToEnd: {}
+# 9. Verify widget ASButton:signUpButton is displayed on the screen: Verifies that the widget:signUpButton renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-signUpButton"
+- waitForAnimationToEnd: {}
+# 10. Verify widget ASButton:signUpButton functionalities: Verifies that tapping button widget:signUpButton works correctly and triggers the expected action.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-signUpButton"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-signUpButton"
+- waitForAnimationToEnd: {}
+# 11. Verify event:onPress using widget ASButton:signUpButton in screen SignUp should navigate to Login: Verify that triggering event:onPress using widget: signUpButton in screen SignUp correctly navigates to the next screen Login with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-emailField"
+      TEXT_VALUE: "${TC7790_EMAILFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-textInput-passwordField"
+      TEXT_VALUE: "${TC2712_PASSWORDFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-signUpButton"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-signUpButton"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "16a52a1d-593c-4822-9748-cf46abf6dacf"
+    optional: true
+- waitForAnimationToEnd: {}
+# 12. Navigate back after verifying event:onPress from ASButton:signUpButton: This test case checks if the Navigate back after verifying event:onPress from ASButton:signUpButton works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}
+- waitForAnimationToEnd: {}
+# 13. Verify App Header in screen SignUp is displayed: Verifies that the App Header renders correctly and all its components are visible to the user in screen SignUp.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "Page Title"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "header-back-button"
+- waitForAnimationToEnd: {}
+# 14. Verify Back Button in App Header of screen SignUp is tappable: Verifies that the back button in the App Header of screen SignUp is visible and responds correctly to a tap interaction.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "header-back-button"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "header-back-button"

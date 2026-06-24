@@ -1,0 +1,161 @@
+appId: "${APP_ID}"
+name: "dashboardTestFlow"
+# Suite: Dashboard
+# Consolidated test flow for Dashboard screen
+# Contains 15 test case(s):
+---
+- launchApp: {}
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-emailField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-emailField"
+      TEXT_VALUE: "${TC0360_EMAILFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "view-textInput-passwordField"
+- runFlow:
+    file: "common/inputTextAndWait.yaml"
+    env:
+      WIDGET_ID: "textInput-textInput-passwordField"
+      TEXT_VALUE: "${TC4101_PASSWORDFIELD_VALUE}"
+- pressKey: "Enter"
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-loginButton"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-loginButton"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "b080f036-4305-45de-865b-f23b09748495"
+    optional: true
+# 1. Verify widget ASText:hdrBooks is displayed on the screen: Verifies that the widget:hdrBooks renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "hdrBooks"
+- waitForAnimationToEnd: {}
+# 2. Verify widget ASText:hdrBooks is displayed on the screen: Verifies that the label of widget:hdrBooks appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "hdrBooks"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "hdrBooks"
+- waitForAnimationToEnd: {}
+# 3. Verify widget ASImage:coverThumb is displayed on the screen: Verifies that the widget:coverThumb renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "coverThumb"
+- waitForAnimationToEnd: {}
+# 4. Verify widget ASText:bookTitle is displayed on the screen: Verifies that the widget:bookTitle renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bookTitle"
+- waitForAnimationToEnd: {}
+# 5. Verify widget ASText:bookTitle is displayed on the screen: Verifies that the label of widget:bookTitle appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bookTitle"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bookTitle"
+- waitForAnimationToEnd: {}
+# 6. Verify widget ASText:bookSubtitle is displayed on the screen: Verifies that the widget:bookSubtitle renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bookSubtitle"
+- waitForAnimationToEnd: {}
+# 7. Verify widget ASText:bookSubtitle is displayed on the screen: Verifies that the label of widget:bookSubtitle appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bookSubtitle"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bookSubtitle"
+- waitForAnimationToEnd: {}
+# 8. Verify widget ASBadge:statusBadge is displayed on the screen: Verifies that the widget:statusBadge renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-statusBadge"
+- waitForAnimationToEnd: {}
+# 9. Verify widget ASBadge:statusBadge is displayed on the screen: Verifies that the label of widget:statusBadge appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-statusBadge"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-statusBadge"
+- waitForAnimationToEnd: {}
+# 10. Verify widget ASText:chevron is displayed on the screen: Verifies that the widget:chevron renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "chevron"
+- waitForAnimationToEnd: {}
+# 11. Verify widget ASText:chevron is displayed on the screen: Verifies that the label of widget:chevron appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "chevron"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "chevron"
+- waitForAnimationToEnd: {}
+# 12. Verify widget ASFloatingActionButton:btnAddBook is displayed on the screen: Verifies that the widget:btnAddBook renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddBook"
+- waitForAnimationToEnd: {}
+# 13. Verify widget ASFloatingActionButton:btnAddBook functionalities: Verifies that tapping button widget:btnAddBook works correctly and triggers the expected action.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddBook"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddBook"
+- waitForAnimationToEnd: {}
+# 14. Verify event:onPress using widget ASFloatingActionButton:btnAddBook in screen Dashboard should navigate to BookForm: Verify that triggering event:onPress using widget: btnAddBook in screen Dashboard correctly navigates to the next screen BookForm with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddBook"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnAddBook"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "b5539ba3-f5ce-4e0a-ab31-9fa4eff1fd38"
+    optional: true
+- waitForAnimationToEnd: {}
+# 15. Navigate back after verifying event:onPress from ASFloatingActionButton:btnAddBook: This test case checks if the Navigate back after verifying event:onPress from ASFloatingActionButton:btnAddBook works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}

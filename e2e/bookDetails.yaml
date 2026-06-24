@@ -1,0 +1,313 @@
+appId: "${APP_ID}"
+name: "bookDetailsTestFlow"
+# Suite: BookDetails
+# Consolidated test flow for BookDetails screen
+# Contains 37 test case(s):
+---
+- launchApp: {}
+# 1. Verify widget ASImage:imgCover is displayed on the screen: Verifies that the widget:imgCover renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "imgCover"
+- waitForAnimationToEnd: {}
+# 2. Verify widget ASText:ttlBook is displayed on the screen: Verifies that the widget:ttlBook renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "ttlBook"
+- waitForAnimationToEnd: {}
+# 3. Verify widget ASText:ttlBook is displayed on the screen: Verifies that the label of widget:ttlBook appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "ttlBook"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "ttlBook"
+- waitForAnimationToEnd: {}
+# 4. Verify widget ASText:subAuthor is displayed on the screen: Verifies that the widget:subAuthor renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "subAuthor"
+- waitForAnimationToEnd: {}
+# 5. Verify widget ASText:subAuthor is displayed on the screen: Verifies that the label of widget:subAuthor appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "subAuthor"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "subAuthor"
+- waitForAnimationToEnd: {}
+# 6. Verify widget ASBadge:badgeRead is displayed on the screen: Verifies that the widget:badgeRead renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-badgeRead"
+- waitForAnimationToEnd: {}
+# 7. Verify widget ASBadge:badgeRead is displayed on the screen: Verifies that the label of widget:badgeRead appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-badgeRead"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-badgeRead"
+- waitForAnimationToEnd: {}
+# 8. Verify widget ASText:txtEdition is displayed on the screen: Verifies that the widget:txtEdition renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtEdition"
+- waitForAnimationToEnd: {}
+# 9. Verify widget ASText:txtEdition is displayed on the screen: Verifies that the label of widget:txtEdition appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtEdition"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtEdition"
+- waitForAnimationToEnd: {}
+# 10. Verify widget ASText:txtPublisher is displayed on the screen: Verifies that the widget:txtPublisher renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPublisher"
+- waitForAnimationToEnd: {}
+# 11. Verify widget ASText:txtPublisher is displayed on the screen: Verifies that the label of widget:txtPublisher appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPublisher"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPublisher"
+- waitForAnimationToEnd: {}
+# 12. Verify widget ASText:txtPublished is displayed on the screen: Verifies that the widget:txtPublished renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPublished"
+- waitForAnimationToEnd: {}
+# 13. Verify widget ASText:txtPublished is displayed on the screen: Verifies that the label of widget:txtPublished appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPublished"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPublished"
+- waitForAnimationToEnd: {}
+# 14. Verify widget ASText:txtAcquired is displayed on the screen: Verifies that the widget:txtAcquired renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtAcquired"
+- waitForAnimationToEnd: {}
+# 15. Verify widget ASText:txtAcquired is displayed on the screen: Verifies that the label of widget:txtAcquired appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtAcquired"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtAcquired"
+- waitForAnimationToEnd: {}
+# 16. Verify widget ASText:txtFormat is displayed on the screen: Verifies that the widget:txtFormat renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtFormat"
+- waitForAnimationToEnd: {}
+# 17. Verify widget ASText:txtFormat is displayed on the screen: Verifies that the label of widget:txtFormat appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtFormat"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtFormat"
+- waitForAnimationToEnd: {}
+# 18. Verify widget ASText:txtLanguage is displayed on the screen: Verifies that the widget:txtLanguage renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtLanguage"
+- waitForAnimationToEnd: {}
+# 19. Verify widget ASText:txtLanguage is displayed on the screen: Verifies that the label of widget:txtLanguage appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtLanguage"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtLanguage"
+- waitForAnimationToEnd: {}
+# 20. Verify widget ASText:txtPages is displayed on the screen: Verifies that the widget:txtPages renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPages"
+- waitForAnimationToEnd: {}
+# 21. Verify widget ASText:txtPages is displayed on the screen: Verifies that the label of widget:txtPages appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPages"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtPages"
+- waitForAnimationToEnd: {}
+# 22. Verify widget ASText:txtIsbn10 is displayed on the screen: Verifies that the widget:txtIsbn10 renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtIsbn10"
+- waitForAnimationToEnd: {}
+# 23. Verify widget ASText:txtIsbn10 is displayed on the screen: Verifies that the label of widget:txtIsbn10 appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtIsbn10"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtIsbn10"
+- waitForAnimationToEnd: {}
+# 24. Verify widget ASText:txtIsbn13 is displayed on the screen: Verifies that the widget:txtIsbn13 renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtIsbn13"
+- waitForAnimationToEnd: {}
+# 25. Verify widget ASText:txtIsbn13 is displayed on the screen: Verifies that the label of widget:txtIsbn13 appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtIsbn13"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "txtIsbn13"
+- waitForAnimationToEnd: {}
+# 26. Verify widget ASSlider:rating is displayed on the screen: Verifies that the widget:rating renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "slider-rating"
+- waitForAnimationToEnd: {}
+# 27. Verify widget ASSlider:rating functionalities: Verifies that slider widget:rating moves correctly and updates its value.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "slider-rating"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "slider-rating"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "slider-rating"
+- runFlow:
+    file: "common/swipeRightAndWait.yaml"
+    env:
+      WIDGET_ID: "slider-rating"
+- waitForAnimationToEnd: {}
+# 28. Verify widget ASText:notes is displayed on the screen: Verifies that the widget:notes renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "notes"
+- waitForAnimationToEnd: {}
+# 29. Verify widget ASText:notes is displayed on the screen: Verifies that the label of widget:notes appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "notes"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "notes"
+- waitForAnimationToEnd: {}
+# 30. Verify widget ASText:tags is displayed on the screen: Verifies that the widget:tags renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "tags"
+- waitForAnimationToEnd: {}
+# 31. Verify widget ASText:tags is displayed on the screen: Verifies that the label of widget:tags appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "tags"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "tags"
+- waitForAnimationToEnd: {}
+# 32. Verify widget ASButton:btnEditBook is displayed on the screen: Verifies that the widget:btnEditBook renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnEditBook"
+- waitForAnimationToEnd: {}
+# 33. Verify event:onPress using widget ASButton:btnEditBook in screen BookDetails should navigate to BookForm: Verify that triggering event:onPress using widget: btnEditBook in screen BookDetails correctly navigates to the next screen BookForm with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnEditBook"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnEditBook"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "b5539ba3-f5ce-4e0a-ab31-9fa4eff1fd38"
+    optional: true
+- waitForAnimationToEnd: {}
+# 34. Navigate back after verifying event:onPress from ASButton:btnEditBook: This test case checks if the Navigate back after verifying event:onPress from ASButton:btnEditBook works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}
+- waitForAnimationToEnd: {}
+# 35. Verify widget ASButton:btnDeleteBook is displayed on the screen: Verifies that the widget:btnDeleteBook renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnDeleteBook"
+- waitForAnimationToEnd: {}
+# 36. Verify event:onPress using widget ASButton:btnDeleteBook in screen BookDetails should navigate to Dashboard: Verify that triggering event:onPress using widget: btnDeleteBook in screen BookDetails correctly navigates to the next screen Dashboard with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnDeleteBook"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnDeleteBook"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "b080f036-4305-45de-865b-f23b09748495"
+    optional: true
+- waitForAnimationToEnd: {}
+# 37. Navigate back after verifying event:onPress from ASButton:btnDeleteBook: This test case checks if the Navigate back after verifying event:onPress from ASButton:btnDeleteBook works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}
+- waitForAnimationToEnd: {}

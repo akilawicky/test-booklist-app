@@ -1,0 +1,11 @@
+# Environment files - do not commit to version control
+.env
+.env.development
+.env.production
+.env.staging
+.env.local
+.env.*.local
+
+# Build output
+dist/
+web-build/

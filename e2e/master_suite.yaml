@@ -1,0 +1,53 @@
+appId: ${APP_ID}
+name: Master Test Suite
+# Generated Consolidated Test Suite Information:
+# Each screen has a single consolidated flow file containing all its test cases
+# Suite: Login
+# Consolidated flow file: login.yaml
+# Contains 18 test case(s):
+
+# Suite: Dashboard
+# Consolidated flow file: dashboard.yaml
+# Contains 15 test case(s):
+
+# Suite: AuthorList
+# Consolidated flow file: authorList.yaml
+# Contains 13 test case(s):
+
+# Suite: BookForm
+# Consolidated flow file: bookForm.yaml
+# Contains 45 test case(s):
+
+# Suite: AuthorForm
+# Consolidated flow file: authorForm.yaml
+# Contains 35 test case(s):
+
+# Suite: BookDetails
+# Consolidated flow file: bookDetails.yaml
+# Contains 39 test case(s):
+
+# Suite: AuthorDetails
+# Consolidated flow file: authorDetails.yaml
+# Contains 29 test case(s):
+
+# Suite: SignUp
+# Consolidated flow file: signUp.yaml
+# Contains 14 test case(s):
+
+---
+- runFlow:
+    file: login.yaml
+- runFlow:
+    file: dashboard.yaml
+- runFlow:
+    file: authorList.yaml
+- runFlow:
+    file: bookForm.yaml
+- runFlow:
+    file: authorForm.yaml
+- runFlow:
+    file: bookDetails.yaml
+- runFlow:
+    file: authorDetails.yaml
+- runFlow:
+    file: signUp.yaml

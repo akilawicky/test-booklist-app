@@ -1,0 +1,225 @@
+appId: "${APP_ID}"
+name: "authorDetailsTestFlow"
+# Suite: AuthorDetails
+# Consolidated test flow for AuthorDetails screen
+# Contains 27 test case(s):
+---
+- launchApp: {}
+# 1. Verify widget ASImage:authorAvatar is displayed on the screen: Verifies that the widget:authorAvatar renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authorAvatar"
+- waitForAnimationToEnd: {}
+# 2. Verify widget ASText:authName is displayed on the screen: Verifies that the widget:authName renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authName"
+- waitForAnimationToEnd: {}
+# 3. Verify widget ASText:authName is displayed on the screen: Verifies that the label of widget:authName appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authName"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authName"
+- waitForAnimationToEnd: {}
+# 4. Verify widget ASBadge:authorCountryBadge is displayed on the screen: Verifies that the widget:authorCountryBadge renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-authorCountryBadge"
+- waitForAnimationToEnd: {}
+# 5. Verify widget ASBadge:authorCountryBadge is displayed on the screen: Verifies that the label of widget:authorCountryBadge appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-authorCountryBadge"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-authorCountryBadge"
+- waitForAnimationToEnd: {}
+# 6. Verify widget ASBadge:authorDatesBadge is displayed on the screen: Verifies that the widget:authorDatesBadge renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-authorDatesBadge"
+- waitForAnimationToEnd: {}
+# 7. Verify widget ASBadge:authorDatesBadge is displayed on the screen: Verifies that the label of widget:authorDatesBadge appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-authorDatesBadge"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "badgeLabel-authorDatesBadge"
+- waitForAnimationToEnd: {}
+# 8. Verify widget ASText:authPen is displayed on the screen: Verifies that the widget:authPen renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authPen"
+- waitForAnimationToEnd: {}
+# 9. Verify widget ASText:authPen is displayed on the screen: Verifies that the label of widget:authPen appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authPen"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authPen"
+- waitForAnimationToEnd: {}
+# 10. Verify widget ASText:authCountry is displayed on the screen: Verifies that the widget:authCountry renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authCountry"
+- waitForAnimationToEnd: {}
+# 11. Verify widget ASText:authCountry is displayed on the screen: Verifies that the label of widget:authCountry appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authCountry"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authCountry"
+- waitForAnimationToEnd: {}
+# 12. Verify widget ASText:authBirth is displayed on the screen: Verifies that the widget:authBirth renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authBirth"
+- waitForAnimationToEnd: {}
+# 13. Verify widget ASText:authBirth is displayed on the screen: Verifies that the label of widget:authBirth appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authBirth"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authBirth"
+- waitForAnimationToEnd: {}
+# 14. Verify widget ASText:authDeath is displayed on the screen: Verifies that the widget:authDeath renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authDeath"
+- waitForAnimationToEnd: {}
+# 15. Verify widget ASText:authDeath is displayed on the screen: Verifies that the label of widget:authDeath appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authDeath"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authDeath"
+- waitForAnimationToEnd: {}
+# 16. Verify widget ASText:authWebsite is displayed on the screen: Verifies that the widget:authWebsite renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authWebsite"
+- waitForAnimationToEnd: {}
+# 17. Verify widget ASText:authWebsite is displayed on the screen: Verifies that the label of widget:authWebsite appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authWebsite"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "authWebsite"
+- waitForAnimationToEnd: {}
+# 18. Verify widget ASText:bio is displayed on the screen: Verifies that the widget:bio renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bio"
+- waitForAnimationToEnd: {}
+# 19. Verify widget ASText:bio is displayed on the screen: Verifies that the label of widget:bio appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bio"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "bio"
+- waitForAnimationToEnd: {}
+# 20. Verify widget ASText:notesA is displayed on the screen: Verifies that the widget:notesA renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "notesA"
+- waitForAnimationToEnd: {}
+# 21. Verify widget ASText:notesA is displayed on the screen: Verifies that the label of widget:notesA appears correctly and is readable.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "notesA"
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "notesA"
+- waitForAnimationToEnd: {}
+# 22. Verify widget ASButton:btnEditAuthor is displayed on the screen: Verifies that the widget:btnEditAuthor renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnEditAuthor"
+- waitForAnimationToEnd: {}
+# 23. Verify event:onPress using widget ASButton:btnEditAuthor in screen AuthorDetails should navigate to AuthorForm: Verify that triggering event:onPress using widget: btnEditAuthor in screen AuthorDetails correctly navigates to the next screen AuthorForm with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnEditAuthor"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnEditAuthor"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "dc5aa96c-6bfc-4c54-8322-d2e3b1b1f4c7"
+    optional: true
+- waitForAnimationToEnd: {}
+# 24. Navigate back after verifying event:onPress from ASButton:btnEditAuthor: This test case checks if the Navigate back after verifying event:onPress from ASButton:btnEditAuthor works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}
+- waitForAnimationToEnd: {}
+# 25. Verify widget ASButton:btnDeleteAuthor is displayed on the screen: Verifies that the widget:btnDeleteAuthor renders properly and is visible to the user.
+- runFlow:
+    file: "common/assertVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnDeleteAuthor"
+- waitForAnimationToEnd: {}
+# 26. Verify event:onPress using widget ASButton:btnDeleteAuthor in screen AuthorDetails should navigate to AuthorList: Verify that triggering event:onPress using widget: btnDeleteAuthor in screen AuthorDetails correctly navigates to the next screen AuthorList with all required fields filled beforehand.
+- runFlow:
+    file: "common/scrollUntilVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnDeleteAuthor"
+- runFlow:
+    file: "common/tapAndWait.yaml"
+    env:
+      WIDGET_ID: "button-btnDeleteAuthor"
+- runFlow:
+    file: "common/assertScreenVisibleAndWait.yaml"
+    env:
+      WIDGET_ID: "b4eb568a-2a8a-498a-98be-0f5252ea88ec"
+    optional: true
+- waitForAnimationToEnd: {}
+# 27. Navigate back after verifying event:onPress from ASButton:btnDeleteAuthor: This test case checks if the Navigate back after verifying event:onPress from ASButton:btnDeleteAuthor works correctly.
+- runFlow:
+    file: "common/backAndWait.yaml"
+    env: {}
+- waitForAnimationToEnd: {}
