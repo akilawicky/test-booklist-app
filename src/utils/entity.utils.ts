@@ -10,13 +10,13 @@ export const useEntityResolver = () => {
     (
       appContext.entities as Record<
         string,
-        { selected?: unknown; data?: unknown }
+        { selected?: unknown; data?: unknown; list?: unknown[] }
       >
     )[entityName]?.selected ??
     (
       appContext.entities as Record<
         string,
-        { selected?: unknown; data?: unknown }
+        { selected?: unknown; data?: unknown; list?: unknown[] }
       >
     )[entityName]?.data;
 };

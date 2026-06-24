@@ -25,6 +25,18 @@ import { FormikProps } from 'formik';
 import * as Yup from 'yup';
 import Route from '@/navigation/routes';
 import { useClearHeaderActions } from '@/utils/screen.effects';
+import {
+  AppContextData,
+  useAppContext,
+  useBookWorkflows,
+} from '@/context';
+import {
+  BookEntity,
+  mapBookApiToEntity,
+  mapBookDraftToFormValues,
+  mapBookEntityToApiBody,
+  mapBookFormValuesToDraft,
+} from '@/utils/book.mappers';
 
 import { STRINGS } from '@/strings';
 
@@ -58,14 +70,90 @@ type ScreenProps = {
 
 const BookForm: React.FC<ScreenProps> = ({ route }) => {
   const formikRef = useRef<FormikProps<FormValues>>(null);
+  const { appContext, setAppContext } = useAppContext();
+  const { createBook, updateBook, saveBookLoading } = useBookWorkflows();
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
+
+  const bookState = appContext.entities?.book || {};
+  const bookDraft = (bookState.draft || {}) as BookEntity;
+  const entityInitialValues = mapBookDraftToFormValues(bookDraft);
+
+  const upsertBookInList = (list: unknown[], savedBook: BookEntity) => {
+    const savedId = savedBook.id;
+    if (savedId === undefined || savedId === null) {
+      return [...list, savedBook];
+    }
+    const existingIndex = list.findIndex(
+      (item) => (item as BookEntity)?.id === savedId,
+    );
+    if (existingIndex < 0) return [...list, savedBook];
+    return list.map((item, index) => (index === existingIndex ? savedBook : item));
+  };
 
   const onPressSavebtnSaveBook = async () => {
+    const formValues = (formikRef.current?.values || {}) as FormValues;
+    const partialBookDraft = mapBookFormValuesToDraft(formValues);
+    const mergedBookDraft = {
+      ...bookDraft,
+      ...partialBookDraft,
+    };
+    const requestBody = mapBookEntityToApiBody(mergedBookDraft);
+    const action = bookState.action === 'edit' ? 'edit' : 'add';
+    const bookId = mergedBookDraft.id as string | number | undefined;
+
+    setAppContext((ctx: AppContextData) => ({
+      ...ctx,
+      entities: {
+        ...ctx.entities,
+        book: {
+          ...ctx.entities.book,
+          draft: mergedBookDraft,
+        },
+      },
+    }));
+
+    try {
+      const response =
+        action === 'edit' && bookId !== undefined
+          ? await updateBook({ id: bookId, body: requestBody })
+          : await createBook({ body: requestBody });
+      const savedBook = mapBookApiToEntity({
+        ...mergedBookDraft,
+        ...((response || {}) as BookEntity),
+      });
+
+      setAppContext((ctx: AppContextData) => {
+        const currentList = Array.isArray(ctx.entities.book.list)
+          ? ctx.entities.book.list
+          : [];
+        return {
+          ...ctx,
+          entities: {
+            ...ctx.entities,
+            book: {
+              ...ctx.entities.book,
+              selected: savedBook,
+              draft: savedBook,
+              lastSaved: response,
+              list: upsertBookInList(currentList, savedBook),
+            },
+          },
+        };
+      });
+    } catch (error) {
+      if (__DEV__) {
+        console.error('[BookForm] Failed to save book:', error);
+      }
+      return;
+    }
+
     navigation.navigate(Route.DASHBOARD, {});
   };
 
-  const onPressCancelbtnCancelBook = onPressSavebtnSaveBook;
+  const onPressCancelbtnCancelBook = async () => {
+    navigation.navigate(Route.DASHBOARD, {});
+  };
 
   useClearHeaderActions(navigation);
 
@@ -97,6 +185,7 @@ const BookForm: React.FC<ScreenProps> = ({ route }) => {
           slRating: 50,
           inTags: '',
           inReview: '',
+          ...entityInitialValues,
         }}
         innerRef={formikRef}
         testId={'ASForm-419327'}
@@ -362,9 +451,10 @@ const BookForm: React.FC<ScreenProps> = ({ route }) => {
                 <AppButton
                   widgetId={'btnSaveBook'}
                   onPress={() => {
-                    onPressSavebtnSaveBook({});
+                    onPressSavebtnSaveBook();
                   }}
                   style={sharedStyles.btnEditAuthor}
+                  loading={saveBookLoading}
                   accessibilityLabel={
                     STRINGS.BookForm.btnSaveBook.accessibilityLabel
                   }
@@ -373,7 +463,7 @@ const BookForm: React.FC<ScreenProps> = ({ route }) => {
                 <AppButton
                   widgetId={'btnCancelBook'}
                   onPress={() => {
-                    onPressCancelbtnCancelBook({});
+                    onPressCancelbtnCancelBook();
                   }}
                   style={sharedStyles.btnCancelAuthor}
                   textStyle={[

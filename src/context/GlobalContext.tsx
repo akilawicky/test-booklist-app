@@ -299,7 +299,7 @@ export const useGlobalContext = () => {
 // ── AppContext ────────────────────────────────────────────────────────────────
 
 export type EntityRuntimeState = {
-  data?: unknown;
+  list?: unknown[];
   selected?: unknown;
   draft?: Record<string, unknown>;
   action?: string | null;
@@ -325,7 +325,7 @@ type AppContextValue = {
 const defaultAppContext: AppContextData = {
   entities: {
     book: {
-      data: null,
+      list: [],
       selected: null,
       draft: {},
       action: null,
@@ -333,7 +333,7 @@ const defaultAppContext: AppContextData = {
     },
 
     author: {
-      data: null,
+      list: [],
       selected: null,
       draft: {},
       action: null,

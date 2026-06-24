@@ -12,6 +12,7 @@ import {
   SignUpWithEmailPassword100Provider,
   SignInWithEmailPasswordV101101Provider,
   SignInWithEmailPassword100Provider,
+  BookProvider,
 } from '@/context';
 
 type ProviderProps = {
@@ -29,6 +30,7 @@ const providers: Array<React.ComponentType<ProviderProps>> = [
   SignUpWithEmailPassword100Provider,
   SignInWithEmailPasswordV101101Provider,
   SignInWithEmailPassword100Provider,
+  BookProvider,
 ];
 
 /**

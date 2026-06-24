@@ -23,6 +23,9 @@ import { FormikProps } from 'formik';
 import * as Yup from 'yup';
 import Route from '@/navigation/routes';
 import { useClearHeaderActions } from '@/utils/screen.effects';
+import { cloneDeep } from 'lodash';
+import { AppContextData, useAppContext } from '@/context';
+import { BookEntity, mapBookApiToEntity } from '@/utils/book.mappers';
 
 import { STRINGS } from '@/strings';
 
@@ -40,10 +43,27 @@ type ScreenProps = {
 
 const BookDetails: React.FC<ScreenProps> = ({ route }) => {
   const formikRef = useRef<FormikProps<FormValues>>(null);
+  const { appContext, setAppContext } = useAppContext();
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
+
+  const selectedBook = mapBookApiToEntity(
+    (appContext.entities?.book?.selected || {}) as BookEntity,
+  );
 
   const onPressEditbtnEditBook = async () => {
+    setAppContext((ctx: AppContextData) => ({
+      ...ctx,
+      entities: {
+        ...ctx.entities,
+        book: {
+          ...ctx.entities.book,
+          action: 'edit',
+          selected: selectedBook,
+          draft: cloneDeep(selectedBook),
+        },
+      },
+    }));
     navigation.navigate(Route.BOOK_FORM, {});
   };
 
@@ -63,7 +83,9 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
         enableReinitialize={true}
         name={'ASForm-909558'}
         validationSchema={Yup.object().shape({})}
-        initialValues={{ rating: 50 }}
+        initialValues={{
+          rating: selectedBook.readerRating ?? selectedBook.rating ?? 50,
+        }}
         innerRef={formikRef}
         testId={'ASForm-909558'}
       >
@@ -81,7 +103,11 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
               >
                 <AppImage
                   widgetId={'imgCover'}
-                  source={imageSources.image__iweu}
+                  source={
+                    typeof selectedBook.coverImageUrl === 'string'
+                      ? selectedBook.coverImageUrl
+                      : imageSources.image__iweu
+                  }
                   resizeMode={'contain'}
                   style={sharedStyles.coverPreview}
                 />
@@ -97,7 +123,9 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                       STRINGS.BookDetails.ttlBook.accessibilityLabel
                     }
                   >
-                    {STRINGS.BookDetails.ttlBook.label}
+                    {String(
+                      selectedBook.title ?? STRINGS.BookDetails.ttlBook.label,
+                    )}
                   </AppText>
                   <AppText
                     widgetId={'subAuthor'}
@@ -106,12 +134,19 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                       STRINGS.BookDetails.subAuthor.accessibilityLabel
                     }
                   >
-                    {STRINGS.BookDetails.subAuthor.label}
+                    {String(
+                      selectedBook.authorName ??
+                        STRINGS.BookDetails.subAuthor.label,
+                    )}
                   </AppText>
                   <AppRow widgetId={'statusRow'} style={sharedStyles.avatarRow}>
                     <AppBadge
                       widgetId={'badgeRead'}
-                      label={STRINGS.BookDetails.badgeRead.label}
+                      label={String(
+                        selectedBook.readStatus ??
+                          STRINGS.BookDetails.badgeRead.label,
+                      )}
+                      children={null}
                     />
                     <ASSpacer
                       name={'spacer1'}
@@ -144,7 +179,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtEdition.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtEdition.label}
+                      {String(
+                        selectedBook.edition ??
+                          STRINGS.BookDetails.txtEdition.label,
+                      )}
                     </AppText>
                     <AppText
                       widgetId={'txtPublisher'}
@@ -153,7 +191,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtPublisher.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtPublisher.label}
+                      {String(
+                        selectedBook.publisher ??
+                          STRINGS.BookDetails.txtPublisher.label,
+                      )}
                     </AppText>
                     <AppText
                       widgetId={'txtPublished'}
@@ -162,7 +203,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtPublished.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtPublished.label}
+                      {String(
+                        selectedBook.publishedDate ??
+                          STRINGS.BookDetails.txtPublished.label,
+                      )}
                     </AppText>
                     <AppText
                       widgetId={'txtAcquired'}
@@ -171,7 +215,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtAcquired.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtAcquired.label}
+                      {String(
+                        selectedBook.acquiredDate ??
+                          STRINGS.BookDetails.txtAcquired.label,
+                      )}
                     </AppText>
                   </AppColumn>
                   <AppColumn
@@ -186,7 +233,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtFormat.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtFormat.label}
+                      {String(
+                        selectedBook.format ??
+                          STRINGS.BookDetails.txtFormat.label,
+                      )}
                     </AppText>
                     <AppText
                       widgetId={'txtLanguage'}
@@ -195,7 +245,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtLanguage.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtLanguage.label}
+                      {String(
+                        selectedBook.language ??
+                          STRINGS.BookDetails.txtLanguage.label,
+                      )}
                     </AppText>
                     <AppText
                       widgetId={'txtPages'}
@@ -204,7 +257,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtPages.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtPages.label}
+                      {String(
+                        selectedBook.pageCount ??
+                          STRINGS.BookDetails.txtPages.label,
+                      )}
                     </AppText>
                     <AppText
                       widgetId={'txtIsbn10'}
@@ -213,7 +269,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtIsbn10.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtIsbn10.label}
+                      {String(
+                        selectedBook.isbn10 ??
+                          STRINGS.BookDetails.txtIsbn10.label,
+                      )}
                     </AppText>
                     <AppText
                       widgetId={'txtIsbn13'}
@@ -222,7 +281,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                         STRINGS.BookDetails.txtIsbn13.accessibilityLabel
                       }
                     >
-                      {STRINGS.BookDetails.txtIsbn13.label}
+                      {String(
+                        selectedBook.isbn13 ??
+                          STRINGS.BookDetails.txtIsbn13.label,
+                      )}
                     </AppText>
                   </AppColumn>
                 </AppRow>
@@ -234,7 +296,10 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                     STRINGS.BookDetails.notes.accessibilityLabel
                   }
                 >
-                  {STRINGS.BookDetails.notes.label}
+                  {String(
+                    selectedBook.reviewNotes ??
+                      STRINGS.BookDetails.notes.label,
+                  )}
                 </AppText>
                 <AppText
                   widgetId={'tags'}
@@ -243,7 +308,7 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                     STRINGS.BookDetails.tags.accessibilityLabel
                   }
                 >
-                  {STRINGS.BookDetails.tags.label}
+                  {String(selectedBook.tags ?? STRINGS.BookDetails.tags.label)}
                 </AppText>
                 <AppColumn
                   widgetId={'actionBar'}
@@ -253,7 +318,7 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                   <AppButton
                     widgetId={'btnEditBook'}
                     onPress={() => {
-                      onPressEditbtnEditBook({});
+                      onPressEditbtnEditBook();
                     }}
                     style={sharedStyles.btnEditAuthor}
                     label={STRINGS.BookDetails.btnEditBook.label}
@@ -264,7 +329,7 @@ const BookDetails: React.FC<ScreenProps> = ({ route }) => {
                   <AppButton
                     widgetId={'btnDeleteBook'}
                     onPress={() => {
-                      onPressDeletebtnDeleteBook({});
+                      onPressDeletebtnDeleteBook();
                     }}
                     style={sharedStyles.btnDeleteAuthor}
                     accessibilityLabel={

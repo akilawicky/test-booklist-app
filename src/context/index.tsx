@@ -18,7 +18,9 @@ export {
   useSignInWithEmailPassword100,
   SignInWithEmailPassword100Provider,
 } from './SignInWithEmailPassword100Context';
+export { useBookWorkflows, BookProvider } from './BookContext';
 export { useGlobalContext, GlobalContextProvider } from './GlobalContext';
+export type { AppContextData } from './GlobalContext';
 export { useFontContext, FontContextProvider } from './FontContext';
 export { useAppContext, AppContextProvider } from './GlobalContext';
 export {
