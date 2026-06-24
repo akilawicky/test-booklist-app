@@ -9,3 +9,19 @@
 # Build output
 dist/
 web-build/
+
+# Dependencies
+node_modules/
+
+# Local Ruby/Bundler dependencies
+.bundle/
+vendor/bundle/
+
+# iOS generated files
+ios/Pods/
+ios/build/
+ios/.xcode.env.local
+ios/*.xcworkspace/
+ios/DerivedData/
+*.xcuserdata/
+*.xcuserstate
