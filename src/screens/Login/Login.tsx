@@ -28,7 +28,11 @@ import * as Yup from 'yup';
 import Route from '@/navigation/routes';
 import { getWorkflowErrorMessage } from '@/utils/common.utils';
 import { useClearHeaderActions } from '@/utils/screen.effects';
-import { useSignInWithEmailPassword100 } from '@/context';
+import {
+  useAppContext,
+  AppContextData,
+  useSignInWithEmailPassword100,
+} from '@/context';
 
 import { STRINGS } from '@/strings';
 
@@ -47,10 +51,11 @@ type ScreenProps = {
 
 const Login: React.FC<ScreenProps> = ({ route }) => {
   const [signInWithEmailPassword100Data, setSignInWithEmailPassword100Data] =
-    useState<string>('');
+    useState<unknown>(null);
   const formikRef = useRef<FormikProps<FormValues>>(null);
   const { signInWithEmailPassword100, signInUserLoading } =
     useSignInWithEmailPassword100();
+  const { setAppContext } = useAppContext();
 
   const navigation = useNavigation();
 
@@ -73,6 +78,20 @@ const Login: React.FC<ScreenProps> = ({ route }) => {
           password: passwordField,
         });
       if (responseSignInWithEmailPassword100) {
+        const loginEntity =
+          responseSignInWithEmailPassword100 as Record<string, unknown>;
+        setAppContext((ctx: AppContextData) => ({
+          ...ctx,
+          entities: {
+            ...ctx.entities,
+            LoginEntity: {
+              ...ctx.entities.LoginEntity,
+              data: loginEntity,
+              draft: loginEntity,
+              lastSaved: loginEntity,
+            },
+          },
+        }));
         setSignInWithEmailPassword100Data(responseSignInWithEmailPassword100);
       } else {
         // Handle empty response for signInWithEmailPassword100

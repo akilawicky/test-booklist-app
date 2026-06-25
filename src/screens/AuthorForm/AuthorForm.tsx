@@ -41,6 +41,8 @@ type FormValues = {
   inNotes?: string;
 };
 
+type RuntimeEntityValues = Record<string, unknown>;
+
 type ScreenRouteParams = {};
 
 type ScreenProps = {
@@ -56,12 +58,62 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
 
   const navigation = useNavigation();
 
-  const mapAuthorFormValuesToauthorDraft = (values: any) => {
-    const toSnakeCase = (s: string) =>
-      s.replace(/([A-Z])/g, '_$1').toLowerCase();
-    return Object.fromEntries(
-      Object.entries(values).map(([k, v]) => [toSnakeCase(k), v]),
-    );
+  const getRuntimeEntityValues = (entityName: string): RuntimeEntityValues => {
+    const entity = appContext.entities[entityName];
+    const data = entity?.data;
+    const selected = entity?.selected;
+    return {
+      ...(data && typeof data === 'object' ? data : {}),
+      ...(selected && typeof selected === 'object' ? selected : {}),
+      ...(entity?.draft ?? {}),
+    } as RuntimeEntityValues;
+  };
+
+  const toOptionalString = (value: unknown): string | undefined => {
+    if (value === undefined || value === null || value === '') {
+      return undefined;
+    }
+    return String(value);
+  };
+
+  const mapAuthorFormValuesToauthorDraft = (
+    values: FormValues,
+  ): RuntimeEntityValues => {
+    return {
+      full_name: values.inFullName,
+      first_name: values.inFirstName,
+      last_name: values.inLastName,
+      pen_name: values.inPenName,
+      country: values.ddCountry,
+      birth_date: values.dpBirth,
+      death_date: values.dpDeath,
+      nationality: values.inNationality,
+      biography: values.inBio,
+      notes: values.inNotes,
+    };
+  };
+
+  const mapAuthorEntityToPatchAccount1106Params = (
+    authorDraft: RuntimeEntityValues,
+  ) => {
+    const loginEntity = getRuntimeEntityValues('LoginEntity');
+    const authorEntity = {
+      ...getRuntimeEntityValues('author'),
+      ...authorDraft,
+    };
+
+    return {
+      accessToken: toOptionalString(loginEntity.accessToken),
+      userId: toOptionalString(authorEntity.id),
+      firstName: toOptionalString(authorEntity.first_name),
+      lastName: toOptionalString(authorEntity.last_name),
+      fullName: toOptionalString(authorEntity.full_name),
+      dateOfBirth: toOptionalString(authorEntity.birth_date),
+      countryOfBirth: toOptionalString(authorEntity.country),
+      nationality: toOptionalString(authorEntity.nationality),
+      createdAt: toOptionalString(authorEntity.created_at),
+      updatedAt: toOptionalString(authorEntity.updated_at),
+    };
   };
 
   const onPressSavebtnSaveAuthor = async () => {
@@ -85,7 +137,19 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
       ...partialauthorDraft,
     };
 
-    await patchAccount1106({ ...mergedauthorDraft });
+    const patchAccount1106Response = await patchAccount1106(
+      mapAuthorEntityToPatchAccount1106Params(mergedauthorDraft),
+    );
+    setAppContext((ctx: AppContextData) => ({
+      ...ctx,
+      entities: {
+        ...ctx.entities,
+        author: {
+          ...ctx.entities.author,
+          lastSaved: patchAccount1106Response,
+        },
+      },
+    }));
   };
 
   const onPressCancelbtnCancelAuthor = async () => {

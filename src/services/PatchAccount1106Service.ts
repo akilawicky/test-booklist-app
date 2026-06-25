@@ -2,7 +2,7 @@
 
 // Import environment if necessary
 
-import { AxiosInstance } from 'axios';
+import { AxiosInstance, AxiosResponse } from 'axios';
 
 type MembershipServiceClient = AxiosInstance;
 
@@ -53,8 +53,8 @@ export type Entitlements = unknown[];
 export type Roles = unknown[];
 
 interface Params {
-  accessToken: string;
-  userId: string;
+  accessToken?: string;
+  userId?: string;
   userName?: string;
   journeyId?: string;
   title?: string;
@@ -221,14 +221,19 @@ export class PatchAccount1106Service {
       let step1: unknown = undefined;
 
       // Check if the clients are registered
-      if (!this._MembershipServiceServiceClient) {
+      const client = this._MembershipServiceServiceClient;
+      if (!client) {
         throw new Error('MembershipService Client is not registered');
+      }
+      if (!accessToken) {
+        throw new Error('patchAccount1 missing required parameter: accessToken');
+      }
+      if (!userId) {
+        throw new Error('patchAccount1 missing required parameter: userId');
       }
 
       // step1
       const step1Request = async () => {
-        const client = this._MembershipServiceServiceClient;
-
         const filteredRequestBody = cleanBody({
           cif: cif,
           email: email,
@@ -309,22 +314,22 @@ export class PatchAccount1106Service {
 
       try {
         step1 = await step1Request();
-        if (!(step1.status < 300)) {
+        if (!((step1 as AxiosResponse).status < 300)) {
           throw new Error('step1 failed.');
         }
 
         let step1Response = {
-          responseBody: step1.data,
+          responseBody: (step1 as AxiosResponse).data,
         };
         return step1Response;
       } catch (error) {
-        console.error('Error occurred:', error.message);
-        throw new Error('patchAccount1 failed', { cause: error });
+        console.error('Error occurred:', (error as Error).message);
+        throw new Error('patchAccount1 failed');
       }
     } catch (error) {
       // Determine which step failed and include it in the error message
 
-      throw new Error('patchAccount1106 failed', { cause: error });
+      throw new Error('patchAccount1106 failed');
     }
   };
 }

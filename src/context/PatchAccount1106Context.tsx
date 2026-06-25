@@ -8,8 +8,8 @@ import React, {
 import { PatchAccount1106Service } from '../services/PatchAccount1106Service';
 
 interface PatchAccount1106Params {
-  accessToken: string;
-  userId: string;
+  accessToken?: string;
+  userId?: string;
   userName?: string;
   journeyId?: string;
   title?: string;

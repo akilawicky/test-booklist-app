@@ -19,6 +19,7 @@ export {
   SignInWithEmailPassword100Provider,
 } from './SignInWithEmailPassword100Context';
 export { useGlobalContext, GlobalContextProvider } from './GlobalContext';
+export type { AppContextData } from './GlobalContext';
 export { useFontContext, FontContextProvider } from './FontContext';
 export { useAppContext, AppContextProvider } from './GlobalContext';
 export {

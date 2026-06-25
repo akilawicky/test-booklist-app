@@ -339,6 +339,14 @@ const defaultAppContext: AppContextData = {
       action: null,
       lastSaved: null,
     },
+
+    LoginEntity: {
+      data: null,
+      selected: null,
+      draft: {},
+      action: null,
+      lastSaved: null,
+    },
   },
   workflows: {},
   ui: {},
