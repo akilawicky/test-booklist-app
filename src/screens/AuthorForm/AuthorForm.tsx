@@ -62,13 +62,18 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
 
   const navigation = useNavigation();
 
-  const mapAuthorFormValuesToauthorDraft = (values: any) => {
-    const toSnakeCase = (s: string) =>
-      s.replace(/([A-Z])/g, '_$1').toLowerCase();
-    return Object.fromEntries(
-      Object.entries(values).map(([k, v]) => [toSnakeCase(k), v]),
-    );
-  };
+  const mapAuthorFormValuesToauthorDraft = (values: any) => ({
+    full_name: values.inFullName,
+    first_name: values.inFirstName,
+    last_name: values.inLastName,
+    app_name: values.inPenName,
+    country: values.ddCountry,
+    birth_date: values.dpBirth,
+    death_date: values.dpDeath,
+    nationality: values.inNationality,
+    biography: values.inBio,
+    notes: values.inNotes,
+  });
 
   const onPressSavebtnSaveAuthor = async () => {
     const formValues = formikRef.current?.values || {};
@@ -86,7 +91,7 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
         },
       },
     }));
-    const mergedauthorDraft = {
+    const mergedauthorDraft: Record<string, any> = {
       ...appContext.entities.author.draft,
       ...partialauthorDraft,
     };
@@ -96,7 +101,7 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
       lastName: mergedauthorDraft.last_name,
       dateOfBirth: mergedauthorDraft.birth_date,
       updatedAt: mergedauthorDraft.updated_at,
-      accessToken,
+      accessToken: accessToken ?? '',
       firstName: mergedauthorDraft.first_name,
       fullName: mergedauthorDraft.full_name,
       userId: mergedauthorDraft.id,
