@@ -25,3 +25,14 @@ ios/*.xcworkspace/
 ios/DerivedData/
 *.xcuserdata/
 *.xcuserstate
+
+# Android generated files
+android/.gradle/
+android/build/
+android/app/build/
+android/app/.cxx/
+android/app/release/
+android/captures/
+android/local.properties
+*.apk
+*.aab
