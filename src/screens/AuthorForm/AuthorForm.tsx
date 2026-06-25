@@ -85,7 +85,19 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
       ...partialauthorDraft,
     };
 
-    await patchAccount1106({ ...mergedauthorDraft });
+    await patchAccount1106({
+      countryCode: mergedauthorDraft.country,
+      lastName: mergedauthorDraft.last_name,
+      dateOfBirth: mergedauthorDraft.birth_date,
+      updatedAt: mergedauthorDraft.updated_at,
+      accessToken: appContext.entities.LoginEntity.data.accessToken,
+      firstName: mergedauthorDraft.first_name,
+      fullName: mergedauthorDraft.full_name,
+      userId: mergedauthorDraft.id,
+      nationality: mergedauthorDraft.nationality,
+      createdAt: mergedauthorDraft.created_at,
+      countryOfBirth: mergedauthorDraft.country,
+    });
   };
 
   const onPressCancelbtnCancelAuthor = async () => {
