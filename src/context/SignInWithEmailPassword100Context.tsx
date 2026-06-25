@@ -7,7 +7,7 @@ import React, {
   useSyncExternalStore,
 } from 'react';
 import { signInWithEmailPassword100Service } from '../services/SignInWithEmailPassword100Service';
-import { keychainData, setKeychainData } from '@/utils/secureStorage';
+import { keychainData, setKeychainData, removeKeychainData } from '@/utils/secureStorage';
 
 interface SignInWithEmailPassword100Params {
   email: string;
@@ -46,6 +46,14 @@ const refreshSecureCache = async (key: string) => {
 };
 
 const writeSecureCache = async (key: string, value: unknown) => {
+  // Secure storage (Keychain/SecureStore) rejects null/undefined/empty values.
+  // Treat missing values as "clear the key" instead of trying to persist them.
+  if (value === null || value === undefined || value === '') {
+    await removeKeychainData(key);
+    secureCache.set(key, null);
+    notifyListeners();
+    return;
+  }
   const stringValue = typeof value === 'string' ? value : JSON.stringify(value);
   const didPersist = await setKeychainData(key, stringValue);
   if (!didPersist) {
