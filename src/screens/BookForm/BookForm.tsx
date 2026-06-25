@@ -124,8 +124,8 @@ const BookForm: React.FC<ScreenProps> = ({ route }) => {
       });
 
       setAppContext((ctx: AppContextData) => {
-        const currentList = Array.isArray(ctx.entities.book.list)
-          ? ctx.entities.book.list
+        const currentList = Array.isArray(ctx.entities.book.data)
+          ? ctx.entities.book.data
           : [];
         return {
           ...ctx,
@@ -136,7 +136,7 @@ const BookForm: React.FC<ScreenProps> = ({ route }) => {
               selected: savedBook,
               draft: savedBook,
               lastSaved: response,
-              list: upsertBookInList(currentList, savedBook),
+              data: upsertBookInList(currentList, savedBook),
             },
           },
         };

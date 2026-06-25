@@ -38,8 +38,8 @@ const Dashboard: React.FC<ScreenProps> = ({ route }) => {
 
   const navigation = useNavigation<any>();
 
-  const books = Array.isArray(appContext.entities?.book?.list)
-    ? appContext.entities.book.list
+  const books = Array.isArray(appContext.entities?.book?.data)
+    ? appContext.entities.book.data
     : [];
 
   const onPressBooksList = async (selectedBook: BookEntity) => {
@@ -88,7 +88,7 @@ const Dashboard: React.FC<ScreenProps> = ({ route }) => {
             ...ctx.entities,
             book: {
               ...ctx.entities.book,
-              list: items,
+              data: items,
             },
           },
         }));
