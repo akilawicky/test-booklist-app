@@ -24,7 +24,12 @@ import { FormikProps } from 'formik';
 import * as Yup from 'yup';
 import Route from '@/navigation/routes';
 import { useClearHeaderActions } from '@/utils/screen.effects';
-import { usePatchAccount1106, useAppContext, AppContextData } from '@/context';
+import {
+  usePatchAccount1106,
+  useAppContext,
+  AppContextData,
+  useSignInWithEmailPassword100,
+} from '@/context';
 
 import { STRINGS } from '@/strings';
 
@@ -53,6 +58,7 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
   const formikRef = useRef<FormikProps<FormValues>>(null);
   const { patchAccount1106, responseBodyLoading } = usePatchAccount1106();
   const { appContext, setAppContext } = useAppContext();
+  const { accessToken } = useSignInWithEmailPassword100();
 
   const navigation = useNavigation();
 
@@ -90,7 +96,7 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
       lastName: mergedauthorDraft.last_name,
       dateOfBirth: mergedauthorDraft.birth_date,
       updatedAt: mergedauthorDraft.updated_at,
-      accessToken: appContext.entities.LoginEntity.data.accessToken,
+      accessToken,
       firstName: mergedauthorDraft.first_name,
       fullName: mergedauthorDraft.full_name,
       userId: mergedauthorDraft.id,
