@@ -19,7 +19,6 @@ import { sharedStyles } from '@/components/shared/sharedStyles';
 
 import Route from '@/navigation/routes';
 import { useClearHeaderActions } from '@/utils/screen.effects';
-import { cloneDeep } from 'lodash';
 import { useAppContext, AppContextData } from '@/context';
 
 import { useEntityResolver } from '@/utils/entity.utils';
@@ -52,7 +51,7 @@ const AuthorDetails: React.FC<ScreenProps> = ({ route }) => {
           ...ctx.entities.author,
           action: 'edit',
           selected: selectedauthor,
-          draft: selectedauthor ? cloneDeep(selectedauthor) : {},
+          draft: selectedauthor,
         },
       },
     }));

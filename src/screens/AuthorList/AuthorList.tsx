@@ -18,7 +18,7 @@ import { sharedStyles } from '@/components/shared/sharedStyles';
 
 import Route from '@/navigation/routes';
 import { useClearHeaderActions } from '@/utils/screen.effects';
-import { useGlobalContext } from '@/context';
+import { AppContextData, useAppContext, useGlobalContext } from '@/context';
 
 import { STRINGS } from '@/strings';
 
@@ -32,14 +32,39 @@ type ScreenProps = {
 
 const AuthorList: React.FC<ScreenProps> = ({ route }) => {
   const { globalData } = useGlobalContext();
+  const { setAppContext } = useAppContext();
 
   const navigation = useNavigation();
 
-  const onPressAuthorsList = () => {
-    navigation.navigate(Route.AUTHOR_DETAILS, {});
+  const onPressAuthorsList = (item: any) => {
+    setAppContext((ctx: AppContextData) => ({
+      ...ctx,
+      entities: {
+        ...ctx.entities,
+        author: {
+          ...ctx.entities.author,
+          action: 'edit',
+          selected: item,
+          draft: null,
+        },
+      },
+    }));
+    navigation.navigate(Route.AUTHOR_FORM, {});
   };
 
   const onPressAddAuthorbtnAddAuthor = async () => {
+    setAppContext((ctx: AppContextData) => ({
+      ...ctx,
+      entities: {
+        ...ctx.entities,
+        author: {
+          ...ctx.entities.author,
+          action: 'add',
+          selected: null,
+          draft: null,
+        },
+      },
+    }));
     navigation.navigate(Route.AUTHOR_FORM, {});
   };
 
@@ -49,7 +74,7 @@ const AuthorList: React.FC<ScreenProps> = ({ route }) => {
     <TouchableOpacity
       activeOpacity={0.8}
       testID={'authorListItemPressable'}
-      onPress={onPressAuthorsList}
+      onPress={() => onPressAuthorsList(item)}
     >
       <AppRow
         widgetId={'author_itemTemplate'}

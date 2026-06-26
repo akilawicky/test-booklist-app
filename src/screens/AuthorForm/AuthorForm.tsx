@@ -78,37 +78,42 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
   const onPressSavebtnSaveAuthor = async () => {
     const formValues = formikRef.current?.values || {};
     const partialauthorDraft = mapAuthorFormValuesToauthorDraft(formValues);
+    const selectedauthor = appContext.entities.author.selected || {};
+    const mergedauthorDraft: Record<string, any> = {
+      ...(selectedauthor as Record<string, any>),
+      ...partialauthorDraft,
+    };
     setAppContext((ctx: AppContextData) => ({
       ...ctx,
       entities: {
         ...ctx.entities,
         author: {
           ...ctx.entities.author,
-          draft: {
-            ...ctx.entities.author.draft,
-            ...partialauthorDraft,
-          },
+          draft: mergedauthorDraft,
         },
       },
     }));
-    const mergedauthorDraft: Record<string, any> = {
-      ...appContext.entities.author.draft,
-      ...partialauthorDraft,
-    };
 
-    await patchAccount1106({
-      countryCode: mergedauthorDraft.country,
-      lastName: mergedauthorDraft.last_name,
-      dateOfBirth: mergedauthorDraft.birth_date,
-      updatedAt: mergedauthorDraft.updated_at,
-      accessToken: accessToken ?? '',
-      firstName: mergedauthorDraft.first_name,
-      fullName: mergedauthorDraft.full_name,
-      userId: mergedauthorDraft.id,
-      nationality: mergedauthorDraft.nationality,
-      createdAt: mergedauthorDraft.created_at,
-      countryOfBirth: mergedauthorDraft.country,
-    });
+    try {
+      await patchAccount1106({
+        countryCode: mergedauthorDraft.country,
+        lastName: mergedauthorDraft.last_name,
+        dateOfBirth: mergedauthorDraft.birth_date,
+        updatedAt: mergedauthorDraft.updated_at,
+        accessToken: accessToken ?? '',
+        firstName: mergedauthorDraft.first_name,
+        fullName: mergedauthorDraft.full_name,
+        userId: mergedauthorDraft.id,
+        nationality: mergedauthorDraft.nationality,
+        createdAt: mergedauthorDraft.created_at,
+        countryOfBirth: mergedauthorDraft.country,
+      });
+    } catch (error) {
+      if (__DEV__) {
+        console.error('[AuthorForm] Failed to save author:', error);
+      }
+      return;
+    }
   };
 
   const onPressCancelbtnCancelAuthor = async () => {

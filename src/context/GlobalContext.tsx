@@ -301,7 +301,7 @@ export const useGlobalContext = () => {
 export type EntityRuntimeState = {
   data?: unknown[];
   selected?: unknown;
-  draft?: Record<string, unknown>;
+  draft?: unknown;
   action?: string | null;
   lastSaved?: unknown;
 };
@@ -335,7 +335,7 @@ const defaultAppContext: AppContextData = {
     author: {
       data: [],
       selected: null,
-      draft: {},
+      draft: null,
       action: null,
       lastSaved: null,
     },

@@ -21,13 +21,13 @@ describe('AuthorList', () => {
   expect(screen.getByTestId('authorsList')).toBeOnTheScreen();
   });
 
-  it('fires onPress on author item -> AuthorDetails', async () => {
+  it('fires onPress on author item -> AuthorForm', async () => {
   const screen = renderScreen(<AuthorList route={route} navigation={navigation} />);
   const [target] = screen.queryAllByTestId('authorListItemPressable');
   expect(target).toBeTruthy();
   fireEvent.press(target);
   await waitFor(() => {
-  expect(mockNavigate).toHaveBeenCalledWith('AuthorDetails', expect.anything());
+  expect(mockNavigate).toHaveBeenCalledWith('AuthorForm', expect.anything());
   });
   });
 
