@@ -45,29 +45,29 @@ AuthorizationClient.instance()
 function AppContent() {
   const { isPinningReady, pinningError } = useSSLPinning();
 
-  if (pinningError) {
-    return (
-      <ASColumn
-        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-      >
-        <ASText
-          style={{ textAlign: 'center', marginHorizontal: 24, color: '#c00' }}
-        >
-          A secure connection could not be configured. Please restart the app.
-        </ASText>
-      </ASColumn>
-    );
-  }
+  // if (pinningError) {
+  //   return (
+  //     <ASColumn
+  //       style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+  //     >
+  //       <ASText
+  //         style={{ textAlign: 'center', marginHorizontal: 24, color: '#c00' }}
+  //       >
+  //         A secure connection could not be configured. Please restart the app.
+  //       </ASText>
+  //     </ASColumn>
+  //   );
+  // }
 
-  if (!isPinningReady) {
-    return (
-      <ASColumn
-        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-      >
-        <ASLoadingIndicator size='large' />
-      </ASColumn>
-    );
-  }
+  // if (!isPinningReady) {
+  //   return (
+  //     <ASColumn
+  //       style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+  //     >
+  //       <ASLoadingIndicator size='large' />
+  //     </ASColumn>
+  //   );
+  // }
 
   return (
     <SecurityGate>

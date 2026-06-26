@@ -24,6 +24,18 @@ const PREFILL_VALUES = {
   };
 
 describe('AuthorForm', () => {
+  beforeEach(() => {
+    workflowMocks.appContext = {
+      entities: {
+        author: {
+          draft: {
+            id: 'a1',
+          },
+        },
+      },
+    };
+  });
+
   it('renders without crashing', () => {
   expect(() => renderScreen(<AuthorForm route={route} navigation={navigation} />)).not.toThrow();
   });
@@ -52,6 +64,11 @@ describe('AuthorForm', () => {
   fireEvent.press(target);
   await waitFor(() => {
   expect(workflowMocks.patchAccount1106).toHaveBeenCalled();
+  expect(workflowMocks.patchAccount1106).toHaveBeenCalledWith(
+    expect.objectContaining({
+      userId: 'a1',
+    }),
+  );
   });
   });
 

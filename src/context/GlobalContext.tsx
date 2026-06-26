@@ -137,6 +137,7 @@ const defaultGlobalData = {
 
   authors: [
     {
+      id: 'a1',
       notes: 'Often writes about software craftsmanship.',
       country: 'United States',
       penName: '',
@@ -150,6 +151,7 @@ const defaultGlobalData = {
       firstName: 'Andrew',
     },
     {
+      id: 'a2',
       notes: 'Newsletter: 3-2-1.',
       country: 'United States',
       penName: '',
@@ -163,6 +165,7 @@ const defaultGlobalData = {
       firstName: 'James',
     },
     {
+      id: 'a3',
       notes: 'Pulitzer Prize nominee; widely influential.',
       country: 'United States',
       penName: '',
@@ -176,6 +179,7 @@ const defaultGlobalData = {
       firstName: 'Frank',
     },
     {
+      id: 'a4',
       notes: 'Writes on history, technology, and society.',
       country: 'Israel',
       penName: '',
@@ -189,6 +193,7 @@ const defaultGlobalData = {
       firstName: 'Yuval',
     },
     {
+      id: 'a5',
       notes: 'Talks and courses on craftsmanship.',
       country: 'United States',
       penName: 'Uncle Bob',
@@ -227,6 +232,7 @@ const defaultGlobalData = {
   },
 
   selectedAuthor: {
+    id: 'a5',
     notes: 'Talks and courses on craftsmanship.',
     country: 'United States',
     penName: 'Uncle Bob',
