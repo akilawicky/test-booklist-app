@@ -2,7 +2,7 @@
 import React from 'react';
 import { fireEvent, waitFor } from '@testing-library/react-native';
 import { renderScreen } from '../render';
-import { mockNavigate, mockGoBack } from '../setup';
+import { mockNavigate, mockGoBack, workflowMocks } from '../setup';
 import AuthorDetails from '../../src/screens/AuthorDetails/AuthorDetails';
 
 // react-navigation passes `route` and `navigation` as props in production.
@@ -10,8 +10,25 @@ import AuthorDetails from '../../src/screens/AuthorDetails/AuthorDetails';
 const route = { params: {}, name: 'MockRoute', key: 'mock-key' };
 const navigation = { navigate: mockNavigate, goBack: mockGoBack };
 
+const selectedAuthor = {
+  id: 'a1',
+  fullName: 'Andrew Hunt',
+  country: 'United States',
+};
 
 describe('AuthorDetails', () => {
+  beforeEach(() => {
+    workflowMocks.appContext = {
+      entities: {
+        author: {
+          selected: selectedAuthor,
+          draft: {},
+          action: null,
+        },
+      },
+    };
+  });
+
   it('renders without crashing', () => {
   expect(() => renderScreen(<AuthorDetails route={route} navigation={navigation} />)).not.toThrow();
   });
@@ -24,6 +41,22 @@ describe('AuthorDetails', () => {
     await waitFor(() => {
       expect(mockNavigate).toHaveBeenCalledWith(expectedRoute, expect.anything());
     });
+  });
+
+  it('preserves selected author id when editing', async () => {
+    const screen = renderScreen(<AuthorDetails route={route} navigation={navigation} />);
+    const [target] = screen.queryAllByTestId('btnEditAuthor');
+    expect(target).toBeTruthy();
+    fireEvent.press(target);
+    await waitFor(() => {
+      expect(mockNavigate).toHaveBeenCalledWith('AuthorForm', expect.anything());
+    });
+    const [updater] = workflowMocks.setAppContext.mock.calls[0];
+    const nextContext = updater(workflowMocks.appContext);
+    expect(nextContext.entities.author.selected).toEqual(selectedAuthor);
+    expect(nextContext.entities.author.draft).toEqual(selectedAuthor);
+    expect(nextContext.entities.author.draft.id).toBe('a1');
+    expect(nextContext.entities.author.action).toBe('edit');
   });
 
 });

@@ -40,9 +40,12 @@ const AuthorDetails: React.FC<ScreenProps> = ({ route }) => {
   const navigation = useNavigation();
 
   const resolveCurrentEntityItem = useEntityResolver();
+  console.log('Resolved current entity item:', resolveCurrentEntityItem('author')); // Log the resolved entity for debugging
 
   const onPressEditbtnEditAuthor = async () => {
     const selectedauthor = resolveCurrentEntityItem('author');
+
+    console.log('Selected author for editing:', selectedauthor); // Log the selected author for debugging
 
     setAppContext((ctx: AppContextData) => ({
       ...ctx,
