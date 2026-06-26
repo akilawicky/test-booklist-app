@@ -56,6 +56,7 @@ const AuthorDetails: React.FC<ScreenProps> = ({ route }) => {
         },
       },
     }));
+    navigation.navigate(Route.AUTHOR_FORM, {});
   };
 
   const onPressDeletebtnDeleteAuthor = async () => {
