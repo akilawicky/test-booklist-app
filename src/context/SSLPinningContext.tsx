@@ -45,6 +45,12 @@ export function SSLPinningProvider({ children }: { children: ReactNode }) {
   const [pinningError, setPinningError] = useState<Error | null>(null);
 
   const initialize = useCallback(async () => {
+    if (__DEV__) {
+      console.warn('[SSLPinning] Skipping SSL pinning in dev.');
+      setIsPinningReady(true);
+      return;
+    }
+
     if (!isSslPinningAvailable()) {
       if (__DEV__) {
         console.warn(
@@ -74,6 +80,10 @@ export function SSLPinningProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     initialize();
+
+    if (__DEV__) {
+      return;
+    }
 
     const subscription = addSslPinningErrorListener(({ serverHostname }) => {
       if (__DEV__) {

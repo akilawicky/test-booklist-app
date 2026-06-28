@@ -121,6 +121,7 @@ const AuthorList: React.FC<ScreenProps> = ({ route }) => {
           containerStyle={styles.authorChevronItemContainerStyle}
           style={sharedStyles.emailFieldPrefixText}
           testId={'authorChevron_item'}
+          onPress={() => onPressAuthorsList(item)}
         />
         <ASDivider
           name={'authorDivider_item'}

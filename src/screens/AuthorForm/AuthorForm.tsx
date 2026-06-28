@@ -103,7 +103,7 @@ const AuthorForm: React.FC<ScreenProps> = ({ route }) => {
         accessToken: accessToken ?? '',
         firstName: mergedauthorDraft.first_name,
         fullName: mergedauthorDraft.full_name,
-        userId: mergedauthorDraft.id,
+        userId: mergedauthorDraft.userId,
         nationality: mergedauthorDraft.nationality,
         createdAt: mergedauthorDraft.created_at,
         countryOfBirth: mergedauthorDraft.country,

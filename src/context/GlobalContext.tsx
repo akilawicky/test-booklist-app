@@ -148,6 +148,7 @@ const defaultGlobalData = {
       birthDate: '1964-01-01',
       deathDate: '',
       firstName: 'Andrew',
+      userId: '36637c00-7b90-47c3-9870-dce1652b5e17'
     },
     {
       notes: 'Newsletter: 3-2-1.',
@@ -161,6 +162,7 @@ const defaultGlobalData = {
       birthDate: '1986-01-22',
       deathDate: '',
       firstName: 'James',
+      userId: 'b5133c0c-0218-4abe-b707-99408e47853e'
     },
     {
       notes: 'Pulitzer Prize nominee; widely influential.',
@@ -174,6 +176,7 @@ const defaultGlobalData = {
       birthDate: '1920-10-08',
       deathDate: '1986-02-11',
       firstName: 'Frank',
+      userId: 'c64c6421-701c-4e93-9307-a2f2cb223a8b'
     },
     {
       notes: 'Writes on history, technology, and society.',
@@ -187,6 +190,7 @@ const defaultGlobalData = {
       birthDate: '1976-02-24',
       deathDate: '',
       firstName: 'Yuval',
+      userId: 'f37aa69e-3dfd-48f7-ab1f-9c393b98286b'
     },
     {
       notes: 'Talks and courses on craftsmanship.',
@@ -200,6 +204,7 @@ const defaultGlobalData = {
       birthDate: '1952-12-05',
       deathDate: '',
       firstName: 'Robert',
+      userId: 'b2d5ccea-8929-424f-8399-c804cd606f3d'
     },
   ],
 
